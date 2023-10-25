@@ -79,8 +79,20 @@
             </div>
             <div class="form-group row">
               <label for="exampleInputEmail1" class="col-2">Email</label>
-              <div class="col-10">
+              <div class="col-8">
                 <input type="email" class="form-control" name="mbsp_email" id="mbsp_email" placeholder="메일 입력...">
+              </div>
+              <div class="col-2">
+              	<button type="button" class="btn btn-outline-info" id="mailAuth">메일인증</button>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="exampleInputEmail1" class="col-2">메일인증</label>
+              <div class="col-8">
+                <input type="text" class="form-control" name="authcode" id="authcode" placeholder="메일인증코드 입력...">
+              </div>
+              <div class="col-2">
+              	<button type="button" class="btn btn-outline-info" id="authCheck">인증확인</button>
               </div>
             </div>
             <div class="form-group row">
@@ -230,6 +242,9 @@
   // read()이벤트 메소드 : 브라우저가 html태그를 모두 읽고난 후에 동작하는 이벤트 특징.
   // 자바스크립트 이벤트 등록 : https://www.w3schools.com/js/js_htmldom_eventlistener.asp
    $(document).ready(function(){
+
+    let useIDCheck = false; // 아이디 중복체크 사용유무 확인
+
    	//document.getElementById("idCheck");
     $("#idCheck").click(function() {
       //alert("아이디 중복체크");
@@ -239,6 +254,47 @@
         $("#mbsp_id").focus();
         return;
       }
+
+      // 아이디 중복체크
+      $.ajax ({
+        url: '/member/idCheck',
+        type: 'get',
+        dataType: 'text',
+        data: {mbsp_id : $("#mbsp_id").val()},
+        success: function(result) {
+          if(result == "yes") {
+            alert("아이디 사용가능");
+            useIDCheck = true;
+          }else {
+            alert("아이디 사용불가능");
+            useIDCheck = false;
+            $("#mbsp_id").val(""); // 아이디 텍스트박스를 값을 지움
+            $("#mbsp_id").focus(); // 포커스
+          }
+        }
+      });
+    });
+
+    // 메일인증 요청
+    $("#mailAuth").click(function() {
+
+      if($("#mbsp_email").val()=="") {
+        alert("이메일을 입력하세요.");
+        $("#mbsp_email").focus();
+        return;
+      }
+
+      $.ajax({
+        url: '/email/authcode',
+        type: 'get',
+        dataType: 'text', // 스프링에서 보내는 데이터의 타입.   'success'
+        data: {receiverMail: $("#mbsp_email").val()},
+        success: function(result) {
+          if(result == "success") {
+            alert("인증메일이 발송되었습니다. 메일 확인바랍니다.");
+          }
+        }
+      });
     });
    });
 </script>
