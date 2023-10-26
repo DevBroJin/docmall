@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -53,4 +54,27 @@ public class EmailController {
 		}
 		return entity;
 	}
+	
+	//인증코드 확인 = 세션형태로 저장한 정보를 이용
+	@GetMapping("/confirmAuthcode")
+	public ResponseEntity<String> confirmAuthcode(String authCode, HttpSession session) {
+		
+		ResponseEntity<String> entity = null;
+		
+//		String sAuthCode = "";
+		if(session.getAttribute("authCode") != null) {
+			// 인증일치 여부
+			if(authCode.equals(session.getAttribute("authCode"))) {
+				entity = new ResponseEntity<String>("success", HttpStatus.OK);
+			}else {
+				entity = new ResponseEntity<String>("fail", HttpStatus.OK);
+			}
+		}else {
+			// 세션이 소멸되었을 때
+			entity = new ResponseEntity<String>("request", HttpStatus.OK);
+		}
+
+		return entity;
+	}
+
 }
