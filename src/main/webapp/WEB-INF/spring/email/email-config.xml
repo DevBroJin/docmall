@@ -6,14 +6,14 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 	<context:property-placeholder location="/WEB-INF/spring/email/email.properties"/>
-	
+	<!-- 메일발송 SMTP : https://velog.io/@hwaya2828/SMTP -->
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com"></property>
 		<property name="port" value="587"></property>
 		<property name="username" value="${email.account}"></property>
 		<property name="password" value="${email.password}"></property>
 		<property name="javaMailProperties">
-			<!-- 서버운영체제에 따라 설정이 각각 다를 수 있다. -->
+			<!-- 서버운영체제에 따라 설정이 각각 다를수 있다. -->
 			<!-- Windows 10, 11, Mac version, Linux 계열 정보를 확인해야 한다. -->
 			<props>
 				<prop key="mail.smtp.auth">true</prop>

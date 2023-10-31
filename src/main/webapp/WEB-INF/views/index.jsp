@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -10,16 +11,12 @@
     <meta name="generator" content="Hugo 0.101.0">
     <title>Pricing example · Bootstrap v4.6</title>
 
-    
-
-    
-
     <!-- Bootstrap core CSS -->
-	<%@include file="comm/plugIn2.jsp"  %>
+<%@include file="/WEB-INF/views/comm/plugIn2.jsp" %>
+
 
 
     <!-- Favicons -->
-
 
 
     <style>
@@ -39,13 +36,17 @@
       }
     </style>
 
-    
-    <!-- Custom styles for this template -->
+    <script>
+      let msg = '${msg}';
+      if(msg == 'success') {
+        alert("회원정보가 수정됨");
+      }
+    </script>
+
   </head>
   <body>
- <header>
- 	<%@include file="comm/header.jsp" %>
- </header>
+    
+<%@include file="/WEB-INF/views/comm/header.jsp" %>
 
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
   <h1 class="display-4">Pricing</h1>
@@ -101,10 +102,11 @@
     </div>
   </div>
 
-  <footer>
-  	<%@include file="comm/footer.jsp" %>
-  </footer>
+  <%@include file="/WEB-INF/views/comm/footer.jsp" %>
 </div>
-<%@include file="comm/plugIn.jsp" %>
+
+<%@include file="/WEB-INF/views/comm/plugIn.jsp" %>
+    
   </body>
 </html>
+    
