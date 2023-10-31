@@ -23,4 +23,10 @@ public class AdminServiceImpl implements AdminService{
 	public AdminVO admin_ok(String admin_id) {
 		return adminMapper.admin_ok(admin_id);
 	}
+	
+	@Override
+	public void adminTimeUpdate(String admin_id) {
+		// TODO Auto-generated method stub
+		adminMapper.adminTimeUpdate(admin_id);
+	}
 }
