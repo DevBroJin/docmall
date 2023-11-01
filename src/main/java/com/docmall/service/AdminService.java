@@ -6,5 +6,5 @@ public interface AdminService {
 
 	AdminVO admin_ok(String admin_id);
 	
-	void adminTimeUpdate(String admin_id);
+	void login_date(String admin_id);
 }

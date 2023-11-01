@@ -25,8 +25,8 @@ public class AdminServiceImpl implements AdminService{
 	}
 	
 	@Override
-	public void adminTimeUpdate(String admin_id) {
+	public void login_date(String admin_id) {
 		// TODO Auto-generated method stub
-		adminMapper.adminTimeUpdate(admin_id);
+		adminMapper.login_date(admin_id);
 	}
 }

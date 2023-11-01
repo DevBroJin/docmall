@@ -50,7 +50,7 @@ public class AdminController {
 				session.setAttribute("adminStatus", db_vo);
 				
 				//로그인 시간 업데이트
-				adminService.adminTimeUpdate(vo.getAdmin_id());
+				adminService.login_date(vo.getAdmin_id());
 				url = "/admin/admin_menu"; // 관리자 메뉴페이지 주소
 			}else {
 				url = "/admin/intro"; // 로그인 폼주소

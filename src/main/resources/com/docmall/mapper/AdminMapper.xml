@@ -15,7 +15,7 @@
 			ADMIN_ID = #{admin_id}
 	</select>
 	
-	<update id="adminTimeUpdate" parameterType="String">
+	<update id="login_date" parameterType="String">
 		UPDATE 
 			ADMIN_TBL
 		SET
