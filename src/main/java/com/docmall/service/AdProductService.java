@@ -1,9 +1,15 @@
 package com.docmall.service;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-@Service
+import com.docmall.domain.ProductVO;
+import com.docmall.dto.Criteria;
+
 public interface AdProductService {
-
 	
+	void pro_insert(ProductVO vo);
+	
+	List<ProductVO> pro_list(Criteria cri);
+	
+	int getTotalcount(Criteria cri);
 }
