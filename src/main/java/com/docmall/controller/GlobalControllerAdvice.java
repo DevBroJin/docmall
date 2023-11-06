@@ -17,7 +17,6 @@ import lombok.extern.log4j.Log4j;
   지정한 패키지(com.docmall.controller)에서 반복적으로 사용하는 Model 데이터작업을
   아래 클래스에서 한번만 정의를 해서 사용할때.
   매번 요청이 발생될 때마다 클래스가 동작된다.(중요) 
- 
  */
 @RequiredArgsConstructor
 @Log4j

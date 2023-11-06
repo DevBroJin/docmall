@@ -25,13 +25,11 @@ public class AdProductServiceImpl implements AdProductService{
 
 	@Override
 	public int getTotalcount(Criteria cri) {
-		// TODO Auto-generated method stub
 		return adProductMapper.getTotalcount(cri);
 	}
 
 	@Override
 	public List<ProductVO> pro_list(Criteria cri) {
-		// TODO Auto-generated method stub
 		return adProductMapper.pro_list(cri);
 	}
 }
