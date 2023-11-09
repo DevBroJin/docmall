@@ -18,20 +18,21 @@ import lombok.extern.log4j.Log4j;
 @RequiredArgsConstructor
 @Log4j
 @RequestMapping("/admin/*")
-@Controller // 클라이언트의 요청을 담당하는 기능. bean으로 생성 및 등록 : adminController
+@Controller // 클라이언트의 요청을 담당하는 기능.  bean으로 생성및등록 : adminController
 public class AdminController {
-	
+
 	private final AdminService adminService;
 	private final PasswordEncoder passwordEncoder;
 	
 	//관리자 로그인폼 페이지
-	@GetMapping("intro") // /admin/intro
+	@GetMapping("/intro")  // /admin/intro
 	public String adminLogin() {
 		log.info("관리자 로그인 페이지");
 		
 		return "/admin/adLogin";
 	}
-	// 관리자 로그인 인증
+	
+	//관리자 로그인 인증
 	@PostMapping("/admin_ok")
 	public String admin_ok(AdminVO vo, HttpSession session, RedirectAttributes rttr) throws Exception {
 		
@@ -51,6 +52,8 @@ public class AdminController {
 				
 				//로그인 시간 업데이트
 				adminService.login_date(vo.getAdmin_id());
+				
+				
 				url = "/admin/admin_menu"; // 관리자 메뉴페이지 주소
 			}else {
 				url = "/admin/intro"; // 로그인 폼주소
@@ -63,6 +66,7 @@ public class AdminController {
 			msg = "failID";
 			rttr.addFlashAttribute("msg", msg); // 로그인 폼 jsp파일에서 사용목적
 		}
+		
 		
 		return "redirect:" + url;
 	}
@@ -81,5 +85,4 @@ public class AdminController {
 	public void admin_menu() {
 		
 	}
-	
 }

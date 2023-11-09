@@ -56,13 +56,14 @@
 		WHERE 
 			MBSP_ID = #{mbsp_id}	
 	</update>
-
-	<delete id="delete" parameterType="String">
 	
+	<delete id="delete" parameterType="String">
+		
 		DELETE FROM
 			MBSP_TBL
-		WHERE
+		WHERE 
 			MBSP_ID = #{mbsp_id}
-	
+		
 	</delete>
+
 </mapper>  

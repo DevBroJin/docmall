@@ -5,23 +5,26 @@
 <mapper namespace="com.docmall.mapper.AdminMapper">
 
 	<select id="admin_ok" parameterType="String" resultType="com.docmall.domain.AdminVO">
+	
 		SELECT 
-			ADMIN_ID, 
-			ADMIN_PW, 
-			ADMIN_VISIT_DATE 
+			ADMIN_ID, ADMIN_PW, ADMIN_VISIT_DATE 
 		FROM 
 			ADMIN_TBL 
 		WHERE 
 			ADMIN_ID = #{admin_id}
+	
 	</select>
 	
 	<update id="login_date" parameterType="String">
-		UPDATE 
+	
+		UPDATE
 			ADMIN_TBL
 		SET
 			ADMIN_VISIT_DATE = sysdate
 		WHERE 
-			ADMIN_ID = #{admin_id}	
+			ADMIN_ID = #{admin_id}			
+		
 	</update>
 	
+
 </mapper>  

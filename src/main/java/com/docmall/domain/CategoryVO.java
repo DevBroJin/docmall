@@ -1,10 +1,10 @@
 package com.docmall.domain;
 
-// cg_code cg_parent_code cg_name
+// cg_code, cg_parent_code, cg_name
 public class CategoryVO {
 
-	private Integer cg_code; // 1, 2차 모든 카테고리 코드
-	private Integer cg_parent_code; // 1차 카테코리 코드
+	private Integer cg_code; // 1, 2차 모든카테고리코드
+	private Integer cg_parent_code; // 1차카테고리코드
 	private String cg_name;
 	
 	// @Getter, @Setter
@@ -26,9 +26,12 @@ public class CategoryVO {
 	public void setCg_name(String cg_name) {
 		this.cg_name = cg_name;
 	}
+	
+	// @ToString
 	@Override
 	public String toString() {
 		return "CategoryVO [cg_code=" + cg_code + ", cg_parent_code=" + cg_parent_code + ", cg_name=" + cg_name + "]";
 	}
+	
 	
 }

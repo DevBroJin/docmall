@@ -111,13 +111,13 @@ public class MemberController {
 				url = "/"; // 메인페이지 주소
 			}else {
 				url = "/member/login"; // 로그인 폼주소
-				msg = "비밀번호가 일치하지 않습니다.";
+				msg = "비밀번호가 일치하지 않읍니다.";
 				rttr.addFlashAttribute("msg", msg); // 로그인 폼 jsp파일에서 사용목적
 			}
 		}else {
 			// 아이디가 일치하지 않으면
 			url = "/member/login"; // 로그인 폼주소
-			msg = "아이디가 일치하지 않습니다.";
+			msg = "아이디가 일치하지 않읍니다.";
 			rttr.addFlashAttribute("msg", msg); // 로그인 폼 jsp파일에서 사용목적
 		}
 		
@@ -159,15 +159,16 @@ public class MemberController {
 				url = "/member/modify"; // 회원수정폼 주소
 			}else {
 				url = "/member/confirmPw"; // 비밀번호 확인(confirm) 폼주소
-				msg = "비밀번호가 일치하지 않습니다.";
+				msg = "비밀번호가 일치하지 않읍니다.";
 				rttr.addFlashAttribute("msg", msg); // 로그인 폼 jsp파일에서 사용목적
 			}
 		}else {
 			// 아이디가 일치하지 않으면
 			url = "/member/confirmPw"; // 로그인 폼주소
-			msg = "아이디가 일치하지 않습니다.";
+			msg = "아이디가 일치하지 않읍니다.";
 			rttr.addFlashAttribute("msg", msg); // 로그인 폼 jsp파일에서 사용목적
 		}
+		
 		
 		return "redirect:" + url;
 	}
@@ -217,8 +218,8 @@ public class MemberController {
 	}
 	
 	//회원탈퇴
-	@PostMapping
-	public String delete(LoginDTO dto, HttpSession session,RedirectAttributes rttr) throws Exception {
+	@PostMapping("/delete")
+	public String delete(LoginDTO dto, HttpSession session, RedirectAttributes rttr) throws Exception {
 		
 		MemberVO db_vo = memberService.login(dto.getMbsp_id());
 		
@@ -229,25 +230,28 @@ public class MemberController {
 		if(db_vo != null) {
 			// 사용자가 입력한 비밀번호(평문텍스트)와 db에서 가져온 암호화된 비밀번호 일치여부 검사
 			if(passwordEncoder.matches(dto.getMbsp_password(), db_vo.getMbsp_password())) {
-				url = "/"; // 회원수정폼 주소
-				session.invalidate(); // 세션소멸
+				url = "/"; 
+				session.invalidate(); // 세션소멸.
 				
 				//회원탈퇴 작업 할것.
 				memberService.delete(dto.getMbsp_id());
 				
 			}else {
 				url = "/member/delConfirmPw"; // 비밀번호 확인(confirm) 폼주소
-				msg = "비밀번호가 일치하지 않습니다.";
+				msg = "비밀번호가 일치하지 않읍니다.";
 				rttr.addFlashAttribute("msg", msg); // 로그인 폼 jsp파일에서 사용목적
 			}
 		}else {
 			// 아이디가 일치하지 않으면
 			url = "/member/delConfirmPw"; // 로그인 폼주소
-			msg = "아이디가 일치하지 않습니다.";
+			msg = "아이디가 일치하지 않읍니다.";
 			rttr.addFlashAttribute("msg", msg); // 로그인 폼 jsp파일에서 사용목적
 		}
+		
 		return "redirect:" + url;
 	}
+	
+	
 	
 	
 	

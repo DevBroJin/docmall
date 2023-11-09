@@ -47,7 +47,7 @@
    <div class="text-center">
     <div class="box box-primary">
       <div class="box-header with-border">
-      <h3 class="box-title">회원수정</h3>
+      <h3 class="box-title">Mypage</h3>
       </div>
       
       <form role="form" id="modifyForm" method="post" action="/member/modify">
@@ -213,11 +213,15 @@
   // 별칭: $  -> jQuery()함수
   // ready()이벤트 메서드 : 브라우저가 html태그를 모두 읽고난 후에 동작하는 이벤트 특징.
   // 자바스크립트 이벤트 등록 : https://www.w3schools.com/js/js_htmldom_eventlistener.asp
-  $(document).ready(function() {    
-      $("#btnDelete").click(function() {
-        location.href = "/member/delConfirmPw";
-      });
+  $(document).ready(function() {
+    
+    $("#btnDelete").click(function() {
+      location.href = "/member/delConfirmPw";
     });
+    
+
+  });
 </script>
   </body>
 </html>
+    

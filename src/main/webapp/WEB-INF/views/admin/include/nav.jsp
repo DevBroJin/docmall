@@ -28,6 +28,7 @@
         </div>
       </form>
       <!-- /.search form -->
+
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">HEADER</li>
@@ -45,7 +46,7 @@
             <li><a href="/admin/product/pro_list">상품목록</a></li>
           </ul>
         </li>
-                <li class="treeview">
+        <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>주문관리</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
@@ -55,7 +56,7 @@
             <li><a href="#">주문목록</a></li>
           </ul>
         </li>
-                <li class="treeview">
+        <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>회원관리</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>

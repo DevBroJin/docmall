@@ -39,5 +39,4 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/aopalliance/aopalliance/1.0/aopalliance-1.0.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/springframework/security/spring-security-web/4.1.0.RELEASE/spring-security-web-4.1.0.RELEASE.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/springframework/security/spring-security-config/4.1.0.RELEASE/spring-security-config-4.1.0.RELEASE.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="PLUGIN" id="net.harawata.mybatipse" enabled="true" runInBatchMode="false"/>
 </factorypath>
