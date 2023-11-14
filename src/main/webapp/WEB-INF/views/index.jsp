@@ -110,7 +110,7 @@
 
 <%@include file="/WEB-INF/views/comm/plugIn.jsp" %>
 	<!-- 카테고리 메뉴 자바스크립트 작업소스 -->
-	<script src="js/category_menu.js"></script>
+	<script src="/js/category_menu.js"></script>
     
   </body>
 </html>

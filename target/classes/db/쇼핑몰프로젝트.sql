@@ -390,12 +390,12 @@ SELECT * FROM product_tbl WHERE PRO_NUM = 1;
 DROP TABLE CART_TBL;
 --4.장바구니 테이블
 CREATE TABLE CART_TBL(
-        CART_CODE        NUMBER,
-        PRO_NUM         NUMBER          NOT NULL,
-        MBSP_ID         VARCHAR2(15)    NOT NULL,
-        CART_AMOUNT      NUMBER          NOT NULL,
-        FOREIGN KEY(PRO_NUM) REFERENCES PRODUCT_TBL(PRO_NUM),
-        FOREIGN KEY(MBSP_ID) REFERENCES MBSP_TBL(MBSP_ID),
+        CART_CODE               NUMBER,
+        PRO_NUM                 NUMBER          NOT NULL,
+        MBSP_ID                 VARCHAR2(15)    NOT NULL,
+        CART_AMOUNT             NUMBER          NOT NULL,
+        FOREIGN KEY(PRO_NUM)    REFERENCES PRODUCT_TBL(PRO_NUM),
+        FOREIGN KEY(MBSP_ID)    REFERENCES MBSP_TBL(MBSP_ID),
         CONSTRAINT PK_CART_CODE primary key(CART_CODE) 
 );
 
@@ -464,7 +464,9 @@ COMMIT;
 */
 -- 장바구니 리스트 조회
 
-
+SELECT C.PRO_NUM, C.CART_CODE, C.CART_AMOUNT, P.PRO_NAME, P.PRO_PRICE, P.PRO_IMG, P.PRO_AMOUNT, P.PRO_UP_FOLDER FROM
+PRODUCT_TBL P INNER JOIN CART_TBL C ON P.PRO_NUM = C.PRO_NUM
+WHERE C.MBSP_ID = 'user01';
 
 
 SELECT rownum, P.pro_img, p.pro_up_folder, P.pro_name, P.pro_price, C.cart_amount, P.pro_price * C.cart_amount as unitprice
